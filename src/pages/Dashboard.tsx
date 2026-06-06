@@ -126,12 +126,12 @@ function ScheduleWidget({ theme }: { theme: any }) {
           width: '100%',
           p: 2,
           borderRadius: '16px',
-          border: `1px solid ${isLive ? '#10b981' : 'rgba(167, 139, 250, 0.12)'}`,
+          border: `1px solid ${isLive ? '#10b981' : 'rgba(167, 139, 250, 0.18)'}`,
           background: isLive
             ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.01) 100%)'
             : isCompleted
-            ? 'rgba(15, 23, 42, 0.01)'
-            : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.03)} 0%, transparent 100%)`,
+              ? 'linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)'
+              : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, rgba(255,255,255,0.5) 100%)`,
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'space-between',
@@ -158,13 +158,13 @@ function ScheduleWidget({ theme }: { theme: any }) {
                 backgroundColor: isLive
                   ? '#10b981'
                   : isCompleted
-                  ? 'rgba(15, 23, 42, 0.05)'
-                  : alpha(theme.palette.primary.main, 0.1),
+                    ? 'rgba(15, 23, 42, 0.05)'
+                    : alpha(theme.palette.primary.main, 0.1),
                 color: isLive
                   ? '#ffffff'
                   : isCompleted
-                  ? 'rgba(15, 23, 42, 0.5)'
-                  : theme.palette.primary.main,
+                    ? 'rgba(15, 23, 42, 0.5)'
+                    : theme.palette.primary.main,
                 animation: isLive ? 'pulse 2s infinite' : 'none',
                 '@keyframes pulse': {
                   '0%': { boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.4)' },
@@ -179,15 +179,15 @@ function ScheduleWidget({ theme }: { theme: any }) {
           </Typography>
 
           <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
-            <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
-              <PersonIcon sx={{ fontSize: '0.8rem', color: 'rgba(15, 23, 42, 0.4)' }} />
-              <Typography sx={{ fontSize: '0.7rem', color: 'rgba(15, 23, 42, 0.5)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+            <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+              <PersonIcon sx={{ fontSize: '0.85rem', color: 'rgba(15, 23, 42, 0.4)', display: 'flex', alignSelf: 'center' }} />
+              <Typography sx={{ fontSize: '0.7rem', color: 'rgba(15, 23, 42, 0.5)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
                 {item.trainer}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-              <LocationOnIcon sx={{ fontSize: '0.8rem', color: theme.palette.primary.main }} />
-              <Typography sx={{ fontSize: '0.7rem', fontWeight: 600, color: theme.palette.primary.main, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+              <LocationOnIcon sx={{ fontSize: '0.85rem', color: theme.palette.primary.main, display: 'flex', alignSelf: 'center' }} />
+              <Typography sx={{ fontSize: '0.7rem', fontWeight: 600, color: theme.palette.primary.main, fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
                 {item.room}
               </Typography>
             </Stack>
@@ -558,9 +558,9 @@ function TeachersWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.12)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.03)',
-        backgroundColor: '#ffffff',
+        border: '1px solid rgba(167, 139, 250, 0.18)',
+        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.06)',
+        background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)',
         display: 'flex',
         flexDirection: 'column',
       }}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { TrainiqThemeProvider } from './theme';
 import FloatingSidebar from './components/FloatingSidebar';
 import Header from './components/Header';
