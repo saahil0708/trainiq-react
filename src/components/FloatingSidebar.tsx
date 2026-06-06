@@ -34,8 +34,8 @@ export default function FloatingSidebar() {
         justifyContent: 'space-between',
         borderRadius: 0,
         padding: '32px 0',
-        borderRight: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
-        boxShadow: `4px 0 24px ${alpha(theme.palette.primary.main, 0.04)}`,
+        borderRight: '1px solid rgba(15, 23, 42, 0.08)',
+        boxShadow: '4px 0 24px rgba(0, 0, 0, 0.02)',
         zIndex: 1000,
         display: 'flex',
         flexDirection: 'column',
@@ -62,7 +62,7 @@ export default function FloatingSidebar() {
           <MenuIcon />
         </IconButton>
 
-        <Divider sx={{ borderColor: alpha(theme.palette.primary.main, 0.1), my: 1, width: '100%' }} />
+        <Divider sx={{ borderColor: 'rgba(15, 23, 42, 0.08)', my: 1, width: '100%' }} />
 
         <Stack spacing={1} sx={{ mt: 2, width: '100%' }}>
           {NAV_ITEMS.map((item, index) => {
@@ -74,7 +74,7 @@ export default function FloatingSidebar() {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    color: isActive ? '#5b21b6' : 'rgba(15, 23, 42, 0.65)',
+                    color: isActive ? '#ca0019' : 'rgba(15, 23, 42, 0.65)',
                     backgroundColor: isActive ? alpha(theme.palette.primary.main, 0.15) : 'transparent',
                     borderRadius: '0 24px 24px 0',
                     cursor: 'pointer',
@@ -88,7 +88,7 @@ export default function FloatingSidebar() {
                     justifyContent: 'flex-start',
                     '&:hover': {
                       backgroundColor: isActive ? alpha(theme.palette.primary.main, 0.22) : alpha(theme.palette.primary.main, 0.08),
-                      color: isActive ? '#4c1d95' : theme.palette.primary.main,
+                      color: isActive ? '#ca0019' : theme.palette.primary.main,
                     },
                     transition: 'all 0.25s ease-in-out',
                   }}
@@ -109,7 +109,7 @@ export default function FloatingSidebar() {
       </Stack>
 
       <Stack spacing={2} sx={{ alignItems: 'stretch', width: '100%' }}>
-        <Divider sx={{ borderColor: alpha(theme.palette.primary.main, 0.1), mb: 2, width: '100%' }} />
+        <Divider sx={{ borderColor: 'rgba(15, 23, 42, 0.08)', mb: 2, width: '100%' }} />
 
         <Tooltip title={!isExpanded ? "Logout" : ""} placement="right" arrow>
           <Box

@@ -16,7 +16,7 @@ export default function Header() {
         justifyContent: 'space-between',
         width: '100%',
         paddingBottom: '24px',
-        borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+        borderBottom: `1px solid rgba(15, 23, 42, 0.08)`,
         marginBottom: '32px',
       }}
     >
@@ -55,7 +55,7 @@ export default function Header() {
           display: 'flex',
           alignItems: 'center',
           backgroundColor: '#ffffff',
-          border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+          border: `1px solid rgba(15, 23, 42, 0.08)`,
           borderRadius: '100px',
           px: 2,
           py: 0.75,
@@ -64,7 +64,7 @@ export default function Header() {
           boxShadow: `0 4px 12px ${alpha(theme.palette.primary.main, 0.02)}`,
           transition: 'all 0.2s ease-in-out',
           '&:focus-within': {
-            border: `1px solid ${theme.palette.primary.main}`,
+            border: `1px solid rgba(15, 23, 42, 0.08)`,
             boxShadow: `0 4px 16px ${alpha(theme.palette.primary.main, 0.08)}`,
           }
         }}

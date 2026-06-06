@@ -4,13 +4,13 @@ import * as React from "react";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#a78bfa",       // violet-400
-      light: "#ddd6fe",      // violet-200
-      dark: "#8b5cf6",       // violet-500
+      main: "#CA0019",       // Crimson base theme
+      light: "#ffd6da",      // Light crimson
+      dark: "#9a0010",       // Dark crimson
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#6d28d9",       // violet-700
+      main: "#80000b",       // Deep crimson
     },
   },
 });

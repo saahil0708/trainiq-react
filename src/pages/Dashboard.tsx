@@ -78,8 +78,8 @@ function ScheduleWidget({ theme }: { theme: any }) {
       sx={{
         p: 2.5,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.12)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.03)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
         backgroundColor: '#ffffff',
         height: '240px',
         display: 'flex',
@@ -91,17 +91,17 @@ function ScheduleWidget({ theme }: { theme: any }) {
           Today's Schedule
         </Typography>
         <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-          <Typography sx={{ fontSize: '0.78rem', color: '#7c3aed', fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif', mr: 0.5 }}>
+          <Typography sx={{ fontSize: '0.78rem', color: '#CA0019', fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif', mr: 0.5 }}>
             Showing {activeIndex + 1} / {schedule.length} lectures
           </Typography>
           <IconButton
             size="small"
             onClick={handlePrev}
             sx={{
-              color: '#7c3aed',
-              border: '1px solid rgba(124, 58, 237, 0.15)',
+              color: '#CA0019',
+              border: '1px solid rgba(15, 23, 42, 0.12)',
               p: 0.25,
-              '&:hover': { backgroundColor: 'rgba(124, 58, 237, 0.05)' }
+              '&:hover': { backgroundColor: 'rgba(15, 23, 42, 0.04)' }
             }}
           >
             <ChevronLeftIcon sx={{ fontSize: '1rem' }} />
@@ -110,10 +110,10 @@ function ScheduleWidget({ theme }: { theme: any }) {
             size="small"
             onClick={handleNext}
             sx={{
-              color: '#7c3aed',
-              border: '1px solid rgba(124, 58, 237, 0.15)',
+              color: '#CA0019',
+              border: '1px solid rgba(15, 23, 42, 0.12)',
               p: 0.25,
-              '&:hover': { backgroundColor: 'rgba(124, 58, 237, 0.05)' }
+              '&:hover': { backgroundColor: 'rgba(15, 23, 42, 0.04)' }
             }}
           >
             <ChevronRightIcon sx={{ fontSize: '1rem' }} />
@@ -126,11 +126,11 @@ function ScheduleWidget({ theme }: { theme: any }) {
           width: '100%',
           p: 2,
           borderRadius: '16px',
-          border: `1px solid ${isLive ? '#10b981' : 'rgba(167, 139, 250, 0.18)'}`,
+          border: `1px solid ${isLive ? '#10b981' : 'rgba(15, 23, 42, 0.08)'}`,
           background: isLive
             ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.01) 100%)'
             : isCompleted
-              ? 'linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)'
+              ? 'linear-gradient(135deg, rgba(255, 107, 118, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)'
               : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, rgba(255,255,255,0.5) 100%)`,
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
@@ -282,8 +282,8 @@ function ProgressChartWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.12)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.03)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
         height: '280px',
         backgroundColor: '#ffffff',
         display: 'flex',
@@ -295,7 +295,7 @@ function ProgressChartWidget() {
           <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
             Progress
           </Typography>
-          <Typography sx={{ fontSize: '0.75rem', color: '#a78bfa', fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+          <Typography sx={{ fontSize: '0.75rem', color: '#ff6b76', fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif' }}>
             • C++
           </Typography>
         </Stack>
@@ -309,24 +309,24 @@ function ProgressChartWidget() {
           <AreaChart data={data} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
             <defs>
               <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#a78bfa" stopOpacity={0.25} />
-                <stop offset="95%" stopColor="#a78bfa" stopOpacity={0.01} />
+                <stop offset="5%" stopColor="#ff6b76" stopOpacity={0.25} />
+                <stop offset="95%" stopColor="#ff6b76" stopOpacity={0.01} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(167, 139, 250, 0.08)" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 107, 118, 0.08)" vertical={false} />
             <XAxis dataKey="name" stroke="rgba(15, 23, 42, 0.4)" fontSize={9} tickLine={false} axisLine={false} />
             <YAxis stroke="rgba(15, 23, 42, 0.4)" fontSize={9} tickLine={false} axisLine={false} domain={[0, 50]} />
             <Tooltip
               contentStyle={{
                 backgroundColor: '#ffffff',
-                border: '1px solid rgba(167, 139, 250, 0.15)',
+                border: '1px solid rgba(15, 23, 42, 0.08)',
                 borderRadius: '8px',
                 fontSize: '0.75rem',
                 fontFamily: '"GT Flexa Lt", sans-serif',
-                boxShadow: '0 4px 12px rgba(167, 139, 250, 0.08)',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.04)',
               }}
             />
-            <Area type="monotone" dataKey="score" stroke="#a78bfa" strokeWidth={3} fillOpacity={1} fill="url(#chartGradient)" dot={{ stroke: '#a78bfa', strokeWidth: 2, r: 4, fill: '#ffffff' }} activeDot={{ r: 6 }} />
+            <Area type="monotone" dataKey="score" stroke="#ff6b76" strokeWidth={3} fillOpacity={1} fill="url(#chartGradient)" dot={{ stroke: '#ff6b76', strokeWidth: 2, r: 4, fill: '#ffffff' }} activeDot={{ r: 6 }} />
           </AreaChart>
         </ResponsiveContainer>
       </Box>
@@ -348,8 +348,8 @@ function RatingWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.12)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.03)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
         height: '180px',
         backgroundColor: '#ffffff',
         display: 'flex',
@@ -357,7 +357,7 @@ function RatingWidget() {
         position: 'relative',
         overflow: 'hidden',
         transition: 'all 0.2s ease-in-out',
-        '&:hover': { boxShadow: '0 6px 24px rgba(167, 139, 250, 0.06)' }
+        '&:hover': { boxShadow: '0 6px 24px rgba(0, 0, 0, 0.04)' }
       }}
     >
       <Box sx={{ zIndex: 2 }}>
@@ -387,11 +387,11 @@ function RatingWidget() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="ratingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#ec4899" stopOpacity={0.25} />
-                <stop offset="95%" stopColor="#ec4899" stopOpacity={0.01} />
+                <stop offset="5%" stopColor="#CA0019" stopOpacity={0.25} />
+                <stop offset="95%" stopColor="#CA0019" stopOpacity={0.01} />
               </linearGradient>
             </defs>
-            <Area type="monotone" dataKey="score" stroke="#ec4899" strokeWidth={3} fill="url(#ratingGradient)" dot={false} />
+            <Area type="monotone" dataKey="score" stroke="#CA0019" strokeWidth={3} fill="url(#ratingGradient)" dot={false} />
           </AreaChart>
         </ResponsiveContainer>
       </Box>
@@ -403,7 +403,7 @@ function RatingWidget() {
 // 4. HOMEWORK PROGRESS WIDGET
 // -------------------------------------------------------------
 function HomeworkWidget({ theme }: { theme: any }) {
-  const hw = { title: 'C++ Programming', done: 30, total: 55, color: '#ec4899', subtitle: 'Algorithms & OOP' };
+  const hw = { title: 'C++ Programming', done: 30, total: 55, color: '#64748b', subtitle: 'Algorithms & OOP' };
   const ratio = Math.min((hw.done / hw.total) * 100, 100);
 
   return (
@@ -412,8 +412,8 @@ function HomeworkWidget({ theme }: { theme: any }) {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.12)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.03)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
         height: '180px',
         backgroundColor: '#ffffff',
         display: 'flex',
@@ -430,25 +430,43 @@ function HomeworkWidget({ theme }: { theme: any }) {
       </Box>
 
       <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <Paper elevation={0} sx={{ p: 1.75, borderRadius: '12px', backgroundColor: 'rgba(15, 23, 42, 0.01)', border: '1px solid rgba(15, 23, 42, 0.03)' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1.25 }}>
-            <Box>
-              <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
-                {hw.title}
-              </Typography>
-              <Typography sx={{ fontSize: '0.68rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif' }}>
-                {hw.subtitle}
-              </Typography>
-            </Box>
-            <Chip size="small" label={`${Math.round(ratio)}%`} sx={{ fontSize: '0.62rem', height: 18, fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif', backgroundColor: alpha(hw.color, 0.1), color: hw.color }} />
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Box sx={{ flexGrow: 1, height: 7, borderRadius: 10, backgroundColor: 'rgba(15, 23, 42, 0.04)', overflow: 'hidden' }}>
-              <Box sx={{ width: `${ratio}%`, height: '100%', borderRadius: 10, background: `linear-gradient(90deg, ${hw.color} 0%, #f472b6 100%)` }} />
-            </Box>
-            <Typography sx={{ fontSize: '0.72rem', fontWeight: 700, color: 'rgba(15, 23, 42, 0.5)', fontFamily: '"GT Flexa Lt", sans-serif', minWidth: '38px', textAlign: 'right' }}>
-              {hw.done}/{hw.total}
+        <Paper elevation={0} sx={{ p: 1.75, borderRadius: '12px', backgroundColor: 'rgba(15, 23, 42, 0.01)', border: '1px solid rgba(15, 23, 42, 0.03)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Box>
+            <Typography sx={{ fontSize: '0.85rem', fontWeight: 800, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif', mb: 0.5 }}>
+              {hw.title}
             </Typography>
+            <Typography sx={{ fontSize: '0.68rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif', mb: 1.25 }}>
+              {hw.subtitle}
+            </Typography>
+            <Typography sx={{ fontSize: '0.72rem', fontWeight: 700, color: '#ca0019', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+              {hw.total - hw.done} tasks left
+            </Typography>
+          </Box>
+
+          {/* Circular Progress Ring */}
+          <Box sx={{ position: 'relative', display: 'inline-flex', flexShrink: 0 }}>
+            <svg width="60" height="60" viewBox="0 0 36 36">
+              {/* Background circle */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="rgba(15, 23, 42, 0.04)"
+                strokeWidth="3.2"
+              />
+              {/* Progress circle */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#ca0019"
+                strokeWidth="3.2"
+                strokeDasharray={`${ratio}, 100`}
+                strokeLinecap="round"
+              />
+              {/* Fraction inside */}
+              <text x="18" y="20.5" fontFamily='"GT Flexa Lt", sans-serif' fontSize="6.5" fontWeight="800" textAnchor="middle" fill="#ca0019">
+                {hw.done}/{hw.total}
+              </text>
+            </svg>
           </Box>
         </Paper>
       </Box>
@@ -475,9 +493,9 @@ function AttendanceWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.22)',
-        boxShadow: '0 4px 24px rgba(124, 58, 237, 0.1)',
-        background: 'linear-gradient(145deg, rgba(167, 139, 250, 0.18) 0%, rgba(196, 181, 253, 0.08) 40%, rgba(255, 255, 255, 0.85) 100%)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+        background: 'linear-gradient(145deg, rgba(255, 107, 118, 0.18) 0%, rgba(255, 214, 218, 0.08) 40%, rgba(255, 255, 255, 0.85) 100%)',
         height: '180px',
         display: 'flex',
         flexDirection: 'column',
@@ -494,10 +512,10 @@ function AttendanceWidget() {
           </Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.25 }}>
-          <Typography sx={{ fontSize: '1.8rem', fontWeight: 800, color: '#7c3aed', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
+          <Typography sx={{ fontSize: '1.8rem', fontWeight: 800, color: '#CA0019', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
             {weekAvg}
           </Typography>
-          <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: '#a78bfa', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+          <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: '#ff6b76', fontFamily: '"GT Flexa Lt", sans-serif' }}>
             %
           </Typography>
         </Box>
@@ -528,7 +546,7 @@ function AttendanceWidget() {
                 top: 0,
                 left: '50%',
                 transform: 'translateX(-50%) translateY(4px)',
-                backgroundColor: '#7c3aed',
+                backgroundColor: '#CA0019',
                 color: '#fff',
                 fontSize: '0.58rem',
                 fontWeight: 800,
@@ -541,7 +559,7 @@ function AttendanceWidget() {
                 transition: 'opacity 0.2s ease, transform 0.2s ease',
                 zIndex: 10,
                 pointerEvents: 'none',
-                boxShadow: '0 2px 8px rgba(124,58,237,0.3)',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -550,7 +568,7 @@ function AttendanceWidget() {
                   transform: 'translateX(-50%)',
                   borderWidth: '4px',
                   borderStyle: 'solid',
-                  borderColor: '#7c3aed transparent transparent transparent',
+                  borderColor: '#CA0019 transparent transparent transparent',
                 },
               }}
             >
@@ -563,7 +581,7 @@ function AttendanceWidget() {
                 width: '85%',
                 height: '80px',
                 borderRadius: '9999px',
-                background: 'linear-gradient(180deg, rgba(196,181,253,0.18) 0%, rgba(167,139,250,0.1) 100%)',
+                background: 'linear-gradient(180deg, rgba(255,214,218,0.18) 0%, rgba(255,107,118,0.1) 100%)',
                 position: 'relative',
                 overflow: 'hidden',
                 flexShrink: 0,
@@ -579,17 +597,17 @@ function AttendanceWidget() {
                     right: 0,
                     height: `${d.pct}%`,
                     background: d.pct === 100
-                      ? 'linear-gradient(180deg, #a78bfa 0%, #7c3aed 100%)'
-                      : `linear-gradient(180deg, rgba(167,139,250,0.75) 0%, rgba(124,58,237,0.75) 100%)`,
+                      ? 'linear-gradient(180deg, #ff6b76 0%, #CA0019 100%)'
+                      : `linear-gradient(180deg, rgba(255, 107, 118, 0.75) 0%, rgba(202, 0, 25, 0.75) 100%)`,
                     borderRadius: '9999px',
                     transition: 'height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                    boxShadow: '0 -2px 8px rgba(124,58,237,0.2)',
+                    boxShadow: '0 -2px 8px rgba(202,0,25,0.2)',
                   }}
                 />
               )}
             </Box>
 
-            <Typography sx={{ fontSize: '0.58rem', fontWeight: 700, color: d.pct === 0 ? 'rgba(15,23,42,0.25)' : '#7c3aed', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
+            <Typography sx={{ fontSize: '0.58rem', fontWeight: 700, color: d.pct === 0 ? 'rgba(15,23,42,0.25)' : '#CA0019', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
               {d.day}
             </Typography>
           </Box>
@@ -613,8 +631,8 @@ function CalendarWidget() {
         p: 2,
         borderRadius: '20px',
         border: 'none',
-        boxShadow: '0 8px 32px rgba(124, 58, 237, 0.25)',
-        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, #7c3aed 100%)`,
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, #CA0019 100%)`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -692,9 +710,9 @@ function TeachersWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(167, 139, 250, 0.18)',
-        boxShadow: '0 4px 20px rgba(167, 139, 250, 0.06)',
-        background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)',
+        border: '1px solid rgba(15, 23, 42, 0.06)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+        background: 'linear-gradient(225deg, rgba(255, 107, 118, 0.1) 0%, rgba(255, 255, 255, 0.6) 60%, #ffffff 100%)',
         display: 'flex',
         flexDirection: 'column',
       }}
@@ -714,8 +732,8 @@ function TeachersWidget() {
             <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
               <Avatar
                 sx={{
-                  bgcolor: 'rgba(167, 139, 250, 0.1)',
-                  color: '#7c3aed',
+                  bgcolor: 'rgba(255, 107, 118, 0.1)',
+                  color: '#CA0019',
                   fontWeight: 600,
                   fontSize: '0.8rem',
                   width: 34,
@@ -734,7 +752,7 @@ function TeachersWidget() {
                 </Typography>
               </Box>
             </Stack>
-            <IconButton size="small" sx={{ color: 'rgba(167, 139, 250, 0.65)' }}>
+            <IconButton size="small" sx={{ color: 'rgba(255, 107, 118, 0.65)' }}>
               <EmailIcon sx={{ fontSize: '1.1rem' }} />
             </IconButton>
           </Box>
