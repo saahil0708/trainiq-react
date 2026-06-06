@@ -1,0 +1,29 @@
+@import url('https://db.onlinewebfonts.com/c/b88ced40599ee76946d2aa71611109b4?family=GT+Flexa+Lt');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "GT Flexa Lt", sans-serif;
+}
+
+body {
+  background-color: #faf9ff;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Force today's date in MUI DateCalendar to have white bg and black text */
+button.MuiPickersDay-today {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  font-weight: 800 !important;
+}
