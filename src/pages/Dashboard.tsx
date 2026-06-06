@@ -403,10 +403,8 @@ function RatingWidget() {
 // 4. HOMEWORK PROGRESS WIDGET
 // -------------------------------------------------------------
 function HomeworkWidget({ theme }: { theme: any }) {
-  const homework = [
-    { title: 'C++ Programming', done: 30, total: 55, color: '#ec4899', subtitle: 'Algorithms & OOP' },
-    { title: 'Physics Mechanics', done: 42, total: 40, color: '#a78bfa', subtitle: 'Force & Motion vectors' },
-  ];
+  const hw = { title: 'C++ Programming', done: 30, total: 55, color: '#ec4899', subtitle: 'Algorithms & OOP' };
+  const ratio = Math.min((hw.done / hw.total) * 100, 100);
 
   return (
     <Paper
@@ -431,36 +429,172 @@ function HomeworkWidget({ theme }: { theme: any }) {
         </Button>
       </Box>
 
-      <Grid container spacing={3} sx={{ flexGrow: 1, alignItems: 'center' }}>
-        {homework.map((hw, idx) => {
-          const ratio = Math.min((hw.done / hw.total) * 100, 100);
-          return (
-            <Grid key={idx} size={{ xs: 12, sm: 6 }}>
-              <Paper elevation={0} sx={{ p: 1.75, borderRadius: '12px', backgroundColor: 'rgba(15, 23, 42, 0.01)', border: '1px solid rgba(15, 23, 42, 0.03)' }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
-                  <Box>
-                    <Typography sx={{ fontSize: '0.8rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
-                      {hw.title}
-                    </Typography>
-                    <Typography sx={{ fontSize: '0.65rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif' }}>
-                      {hw.subtitle}
-                    </Typography>
-                  </Box>
-                  <Chip size="small" label={`${Math.round(ratio)}%`} sx={{ fontSize: '0.62rem', height: 18, fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif', backgroundColor: alpha(hw.color, 0.1), color: hw.color }} />
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mt: 1 }}>
-                  <Box sx={{ flexGrow: 1, height: 6, borderRadius: 10, backgroundColor: 'rgba(15, 23, 42, 0.04)', overflow: 'hidden' }}>
-                    <Box sx={{ width: `${ratio}%`, height: '100%', borderRadius: 10, backgroundColor: hw.color }} />
-                  </Box>
-                  <Typography sx={{ fontSize: '0.7rem', fontWeight: 700, color: 'rgba(15, 23, 42, 0.5)', fontFamily: '"GT Flexa Lt", sans-serif', minWidth: '35px', textAlign: 'right' }}>
-                    {hw.done}/{hw.total}
-                  </Typography>
-                </Box>
-              </Paper>
-            </Grid>
-          );
-        })}
-      </Grid>
+      <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Paper elevation={0} sx={{ p: 1.75, borderRadius: '12px', backgroundColor: 'rgba(15, 23, 42, 0.01)', border: '1px solid rgba(15, 23, 42, 0.03)' }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1.25 }}>
+            <Box>
+              <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+                {hw.title}
+              </Typography>
+              <Typography sx={{ fontSize: '0.68rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+                {hw.subtitle}
+              </Typography>
+            </Box>
+            <Chip size="small" label={`${Math.round(ratio)}%`} sx={{ fontSize: '0.62rem', height: 18, fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif', backgroundColor: alpha(hw.color, 0.1), color: hw.color }} />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+            <Box sx={{ flexGrow: 1, height: 7, borderRadius: 10, backgroundColor: 'rgba(15, 23, 42, 0.04)', overflow: 'hidden' }}>
+              <Box sx={{ width: `${ratio}%`, height: '100%', borderRadius: 10, background: `linear-gradient(90deg, ${hw.color} 0%, #f472b6 100%)` }} />
+            </Box>
+            <Typography sx={{ fontSize: '0.72rem', fontWeight: 700, color: 'rgba(15, 23, 42, 0.5)', fontFamily: '"GT Flexa Lt", sans-serif', minWidth: '38px', textAlign: 'right' }}>
+              {hw.done}/{hw.total}
+            </Typography>
+          </Box>
+        </Paper>
+      </Box>
+    </Paper>
+  );
+}
+
+// -------------------------------------------------------------
+// 4b. WEEKLY ATTENDANCE WIDGET
+// -------------------------------------------------------------
+function AttendanceWidget() {
+  const attendance = [
+    { day: 'Mon', pct: 100 },
+    { day: 'Tue', pct: 100 },
+    { day: 'Wed', pct: 80  },
+    { day: 'Thu', pct: 100 },
+    { day: 'Fri', pct: 60  },
+  ];
+  const weekAvg = Math.round(attendance.reduce((s, d) => s + d.pct, 0) / attendance.length);
+
+  return (
+    <Paper
+      elevation={0}
+      sx={{
+        p: 3,
+        borderRadius: '20px',
+        border: '1px solid rgba(167, 139, 250, 0.22)',
+        boxShadow: '0 4px 24px rgba(124, 58, 237, 0.1)',
+        background: 'linear-gradient(145deg, rgba(167, 139, 250, 0.18) 0%, rgba(196, 181, 253, 0.08) 40%, rgba(255, 255, 255, 0.85) 100%)',
+        height: '180px',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      {/* Header */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
+        <Box>
+          <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+            Attendance
+          </Typography>
+          <Typography sx={{ fontSize: '0.7rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 500, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+            This week
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.25 }}>
+          <Typography sx={{ fontSize: '1.8rem', fontWeight: 800, color: '#7c3aed', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
+            {weekAvg}
+          </Typography>
+          <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: '#a78bfa', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+            %
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* Day pill bars — filled from bottom */}
+      <Box sx={{ display: 'flex', gap: '10px', alignItems: 'flex-end', flexGrow: 1 }}>
+        {attendance.map((d, i) => (
+          <Box
+            key={i}
+            sx={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '5px',
+              height: '100%',
+              justifyContent: 'flex-end',
+              position: 'relative',
+              '&:hover .att-tooltip': { opacity: 1, transform: 'translateY(0)' },
+            }}
+          >
+            {/* Hover tooltip */}
+            <Box
+              className="att-tooltip"
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: '50%',
+                transform: 'translateX(-50%) translateY(4px)',
+                backgroundColor: '#7c3aed',
+                color: '#fff',
+                fontSize: '0.58rem',
+                fontWeight: 800,
+                fontFamily: '"GT Flexa Lt", sans-serif',
+                px: 0.75,
+                py: 0.25,
+                borderRadius: '5px',
+                whiteSpace: 'nowrap',
+                opacity: 0,
+                transition: 'opacity 0.2s ease, transform 0.2s ease',
+                zIndex: 10,
+                pointerEvents: 'none',
+                boxShadow: '0 2px 8px rgba(124,58,237,0.3)',
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  top: '100%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  borderWidth: '4px',
+                  borderStyle: 'solid',
+                  borderColor: '#7c3aed transparent transparent transparent',
+                },
+              }}
+            >
+              {d.pct}%
+            </Box>
+
+            {/* Fixed-height container (grey pill) */}
+            <Box
+              sx={{
+                width: '85%',
+                height: '80px',
+                borderRadius: '9999px',
+                background: 'linear-gradient(180deg, rgba(196,181,253,0.18) 0%, rgba(167,139,250,0.1) 100%)',
+                position: 'relative',
+                overflow: 'hidden',
+                flexShrink: 0,
+              }}
+            >
+              {/* Filled portion from bottom */}
+              {d.pct > 0 && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: `${d.pct}%`,
+                    background: d.pct === 100
+                      ? 'linear-gradient(180deg, #a78bfa 0%, #7c3aed 100%)'
+                      : `linear-gradient(180deg, rgba(167,139,250,0.75) 0%, rgba(124,58,237,0.75) 100%)`,
+                    borderRadius: '9999px',
+                    transition: 'height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                    boxShadow: '0 -2px 8px rgba(124,58,237,0.2)',
+                  }}
+                />
+              )}
+            </Box>
+
+            <Typography sx={{ fontSize: '0.58rem', fontWeight: 700, color: d.pct === 0 ? 'rgba(15,23,42,0.25)' : '#7c3aed', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
+              {d.day}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Paper>
   );
 }
@@ -567,7 +701,7 @@ function TeachersWidget() {
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
-          Teachers
+          Trainers
         </Typography>
         <Button size="small" variant="text" sx={{ fontSize: '0.75rem', color: 'rgba(15, 23, 42, 0.4)', textTransform: 'none', fontWeight: 600, fontFamily: '"GT Flexa Lt", sans-serif' }}>
           see all
@@ -632,8 +766,11 @@ export default function Dashboard() {
             <Grid size={{ xs: 12, md: 4 }}>
               <RatingWidget />
             </Grid>
-            <Grid size={{ xs: 12, md: 8 }}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <HomeworkWidget theme={theme} />
+            </Grid>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <AttendanceWidget />
             </Grid>
           </Grid>
         </Grid>
