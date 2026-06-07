@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #fff8f9;
+  background-color: #F9FAFB;
   color: #0f172a;
   min-height: 100vh;
 }
@@ -23,7 +23,7 @@ body {
 /* Force today's date in MUI DateCalendar to have white bg and black text */
 button.MuiPickersDay-today {
   background-color: #ffffff !important;
-  color: #000000 !important;
+  color: #CA0019 !important;
   border: none !important;
   font-weight: 800 !important;
 }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, IconButton, Tooltip, Stack, Typography, Divider } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -10,17 +11,26 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', icon: <DashboardIcon /> },
-  { label: 'My Courses', icon: <MenuBookIcon /> },
-  { label: 'Schedule', icon: <CalendarMonthIcon /> },
-  { label: 'Profile', icon: <PersonIcon /> },
-  { label: 'Settings', icon: <SettingsIcon /> },
+  { label: 'Dashboard', icon: <DashboardIcon />, path: '/' },
+  { label: 'My Courses', icon: <MenuBookIcon />, path: '/courses' },
+  { label: 'Schedule', icon: <CalendarMonthIcon />, path: '/schedule' },
+  { label: 'Profile', icon: <PersonIcon />, path: '/profile' },
+  { label: 'Settings', icon: <SettingsIcon />, path: '/settings' },
 ];
 
 export default function FloatingSidebar() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Determine active item based on current location pathname
+  const activeIndex = NAV_ITEMS.findIndex(item => {
+    if (item.path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(item.path);
+  });
 
   return (
     <Box
@@ -70,7 +80,7 @@ export default function FloatingSidebar() {
             return (
               <Tooltip key={item.label} title={!isExpanded ? item.label : ''} placement="right" arrow>
                 <Box
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => navigate(item.path)}
                   sx={{
                     display: 'flex',
                     alignItems: 'center',

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography, Stack, Avatar, InputBase, useTheme, Badge, IconButton, Divider } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';

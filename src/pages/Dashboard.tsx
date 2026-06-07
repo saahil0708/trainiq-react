@@ -26,9 +26,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
-import { MOCK_STUDENT_DATA } from '../lib/mockData';
-
 // -------------------------------------------------------------
 // 1. TODAY'S CLASS SCHEDULE WIDGET
 // -------------------------------------------------------------
@@ -338,6 +335,7 @@ function ProgressChartWidget() {
 // 3. RATING WIDGET
 // -------------------------------------------------------------
 function RatingWidget() {
+  const theme = useTheme();
   const data = [
     { score: 5 }, { score: 12 }, { score: 8 }, { score: 20 }, { score: 15 }, { score: 24 },
   ];
@@ -348,32 +346,32 @@ function RatingWidget() {
       sx={{
         p: 3,
         borderRadius: '20px',
-        border: '1px solid rgba(15, 23, 42, 0.06)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.02)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
         height: '180px',
-        backgroundColor: '#ffffff',
+        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, #9a0010 100%)`,
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
         overflow: 'hidden',
         transition: 'all 0.2s ease-in-out',
-        '&:hover': { boxShadow: '0 6px 24px rgba(0, 0, 0, 0.04)' }
+        '&:hover': { boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)' }
       }}
     >
       <Box sx={{ zIndex: 2 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif' }}>
+          <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#ffffff', fontFamily: '"GT Flexa Lt", sans-serif' }}>
             Rating
           </Typography>
-          <Typography sx={{ fontSize: '0.65rem', color: 'rgba(15, 23, 42, 0.4)', fontWeight: 600, fontFamily: '"GT Flexa Lt", sans-serif' }}>
+          <Typography sx={{ fontSize: '0.65rem', color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600, fontFamily: '"GT Flexa Lt", sans-serif' }}>
             last week
           </Typography>
         </Box>
         <Stack direction="row" spacing={1} sx={{ alignItems: 'baseline', mt: 1 }}>
-          <Typography sx={{ fontSize: '2.2rem', fontWeight: 800, color: '#0f172a', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
+          <Typography sx={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', fontFamily: '"GT Flexa Lt", sans-serif', lineHeight: 1 }}>
             8.5
           </Typography>
-          <Stack direction="row" spacing={0.25} sx={{ alignItems: 'center', color: '#10b981' }}>
+          <Stack direction="row" spacing={0.25} sx={{ alignItems: 'center', color: '#4ade80' }}>
             <TrendingUpIcon sx={{ fontSize: '0.85rem' }} />
             <Typography sx={{ fontSize: '0.72rem', fontWeight: 700, fontFamily: '"GT Flexa Lt", sans-serif' }}>
               +15%
@@ -387,11 +385,11 @@ function RatingWidget() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="ratingGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#CA0019" stopOpacity={0.25} />
-                <stop offset="95%" stopColor="#CA0019" stopOpacity={0.01} />
+                <stop offset="5%" stopColor="#ffffff" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#ffffff" stopOpacity={0.01} />
               </linearGradient>
             </defs>
-            <Area type="monotone" dataKey="score" stroke="#CA0019" strokeWidth={3} fill="url(#ratingGradient)" dot={false} />
+            <Area type="monotone" dataKey="score" stroke="#ffffff" strokeWidth={3} fill="url(#ratingGradient)" dot={false} />
           </AreaChart>
         </ResponsiveContainer>
       </Box>
@@ -402,7 +400,7 @@ function RatingWidget() {
 // -------------------------------------------------------------
 // 4. HOMEWORK PROGRESS WIDGET
 // -------------------------------------------------------------
-function HomeworkWidget({ theme }: { theme: any }) {
+function HomeworkWidget() {
   const hw = { title: 'C++ Programming', done: 30, total: 55, color: '#64748b', subtitle: 'Algorithms & OOP' };
   const ratio = Math.min((hw.done / hw.total) * 100, 100);
 
@@ -672,6 +670,14 @@ function CalendarWidget() {
           }}
           sx={{
             width: '100%',
+            height: 'auto',
+            maxHeight: 'none',
+            '& .MuiPickersCalendarHeader-root': {
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              marginTop: '4px',
+              marginBottom: '12px',
+            },
             '& .MuiPickersCalendarHeader-label': {
               color: '#fff',
               fontWeight: 700,
@@ -684,6 +690,14 @@ function CalendarWidget() {
               color: 'rgba(255,255,255,0.7)',
               fontWeight: 600,
               fontFamily: '"GT Flexa Lt", sans-serif',
+            },
+            '& .MuiDayCalendar-header': {
+              marginTop: '16px',
+              marginBottom: '12px',
+            },
+            '& .MuiPickersSlideTransition-root': {
+              minHeight: '220px',
+              marginTop: '8px',
             },
           }}
         />
@@ -785,7 +799,7 @@ export default function Dashboard() {
               <RatingWidget />
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
-              <HomeworkWidget theme={theme} />
+              <HomeworkWidget />
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
               <AttendanceWidget />
